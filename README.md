@@ -3,7 +3,20 @@
 This repository has been forked from [pqm4](https://github.com/mupq/pqm4), however the original project has been created on linux and only provides instructions to compile on linux. This fork provided instructions on how to compile on windows.
 
 # Contents
-- [Requirements](#requirements)
+- [PQM4](#pqm4)
+- [Contents](#contents)
+  - [Requirements](#requirements)
+  - [Prerequisites](#prerequisites)
+    - [Setup the Windows Subsystem for Linux](#setup-the-windows-subsystem-for-linux)
+    - [Install the required linux packages](#install-the-required-linux-packages)
+  - [Compiling](#compiling)
+    - [Windows File-system](#windows-file-system)
+    - [Clone and compile the project](#clone-and-compile-the-project)
+  - [Flashing](#flashing)
+    - [Using Windows](#using-windows)
+    - [Running Tests](#running-tests)
+
+
 
 ## Requirements
 
@@ -40,7 +53,7 @@ Once WSL has been installed and setup we need to install a few packages that are
 
 To compile this project using WSL you can either use the linux file system or the windows. To access the windows file system run `cd /mnt/c` to access your `C` drive. You can then navigate to the desired folder. However accessing the windows file-system from WSL is very slow.
 
-### Clone the project
+### Clone and compile the project
 
 To clone this project from [GitHub](https://github.com/) in WSL simply run:
 
