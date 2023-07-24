@@ -43,3 +43,5 @@ To properly clone the repository we need to enable developer mode on windows. Th
 - For Windows 10 goto `Settings` -> `Update & Security` -> `For Developers` and select `Developer Mode`
 - For Windows 11 goto `Settings` -> `Privacy & Security` -> `For Developers` and select `Developer Mode`
 
+TEST
+
