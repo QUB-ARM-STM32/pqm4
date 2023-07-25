@@ -150,4 +150,4 @@ To be able to run the tests we will need to pass our usb devices from windows. T
 
     ![Test Output](./Images/Test-Cases.png)
 
-    For more advanced testing options refer to the [pqm4 options](./pqm4#running-tests-and-benchmarks).
+    For more advanced testing options refer to the [pqm4 options](./pqm4.md#running-tests-and-benchmarks).
