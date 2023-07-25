@@ -151,8 +151,3 @@ To be able to run the tests we will need to pass our usb devices from windows. T
     ![Test Output](./Images/Test-Cases.png)
 
     For more advanced testing options refer to the [pqm4 options](./pqm4#running-tests-and-benchmarks).
-
-
-
-may need to run `usbipd bind --busid 2-2` as admin to get working
-run `usbipd wsl attach --busid 2-2 --distribution ubuntu` to get it working, will show up in linux as /dev/ttyACM0
