@@ -109,7 +109,50 @@ The easiest method to flash a single binary is to use [STM32CubeProgrammer](http
 
 ### Running Tests
 
-[Follow this to get USB set up](https://learn.microsoft.com/en-us/windows/wsl/connect-usb)
+To be able to run the tests we will need to pass our usb devices from windows. This is not native functionality of WSL and requires some additional setup.
+
+1. [This guide](https://learn.microsoft.com/en-us/windows/wsl/connect-usb) describes the steps necessary to pass usb devices from windows to WSL.
+2. Once you have installed the necessary drivers and setup the usbip service you, connect your STM32 board to your computer. Open a powershell window and run:
+  
+    ```powershell
+    usbipd wsl list
+    ```
+
+    ![usbipd wsl list](./Images/usbipd-list.png)
+
+2. Take note of the `BUSID` of the `ST-Link` device connected. To attach the device to WSL run:
+
+    ```powershell
+    usbipd wsl attach --busid 2-2
+    ```
+
+    This will attach to the default distribution, if you are using a different distribution you can specify it by using the `--distribution` flag.
+
+    **N.B If you receive a message such as `usbipd: error: Access denied; this operation requires administrator privileges.` simply open powershell as an administrator and run `usbipd bind --busid {id} and rerun the above command`**
+
+3. To check that the device has been attached correctly, open our linux terminal and run:
+
+    ```bash
+    lsusb
+    ```
+
+    If the device has been attached correctly you should see the device listed.
+
+    ![lsusb](./Images/lsusb.png)
+
+4. To run the tests we need to navigate to the `pqm4` directory and run:
+
+    ```bash
+    python3 test.py -p nucleo-l4r5zi -u /dev/ttyACM0 kyber1024
+    ```
+
+    Where `-p` is the platform, `-u` is the serial port and `kyber1024` is the algorithm to test.
+
+    ![Test Output](./Images/Test-Cases.png)
+
+    For more advanced testing options refer to the [pqm4 options](./pqm4#running-tests-and-benchmarks).
+
+
 
 may need to run `usbipd bind --busid 2-2` as admin to get working
 run `usbipd wsl attach --busid 2-2 --distribution ubuntu` to get it working, will show up in linux as /dev/ttyACM0
