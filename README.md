@@ -101,7 +101,7 @@ The easiest method to flash a single binary is to use [STM32CubeProgrammer](http
     ![Programming Options](./Images/Programming-Instructions.png)
 
 5. Press `Start Programming` to flash the program onto the board. Ensure that you connect to the board before attempting to flash it.
-6. Open a serial monitor ans set the baud rate to `38400` to see the output.
+6. Press the reset button on the board to run the program, then open a serial monitor ans set the baud rate to `38400` to see the output.
 
     ![Output](./Images/Output.png)
 
@@ -138,7 +138,7 @@ To be able to run the tests we will need to pass our usb devices from windows. T
 
     This will attach to the default distribution, if you are using a different distribution you can specify it by using the `--distribution` flag.
 
-    **N.B If you receive a message such as `usbipd: error: Access denied; this operation requires administrator privileges.` simply open powershell as an administrator and run `usbipd bind --busid {id} and rerun the above command`**
+    **N.B If you receive a message such as `usbipd: error: Access denied; this operation requires administrator privileges.` simply open powershell as an administrator and run `usbipd bind --busid {id} and rerun the above command from a normal powershell window`**
 
 4. To check that the device has been attached correctly, open our linux terminal and run:
 
