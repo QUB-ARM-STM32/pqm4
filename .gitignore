@@ -11,3 +11,5 @@ bin-host/
 compile_commands.json
 .vscode
 obj/
+plots/
+kyber-tests
