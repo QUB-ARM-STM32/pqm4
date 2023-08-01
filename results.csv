@@ -1,0 +1,194 @@
+Speed Evaluation,,,,,,,,,,
+Key Encapsulation Schemes,,,,,,,,,,
+Scheme,Implementation,Key Generation [cycles] (mean),Key Generation [cycles] (min),Key Generation [cycles] (max),Encapsulation [cycles] (mean),Encapsulation [cycles] (min),Encapsulation [cycles] (max),Decapsulation [cycles] (mean),Decapsulation [cycles] (min),Decapsulation [cycles] (max)
+kyber1024 (21 executions),clean,1688246,1685804,1700453,2061820,2059388,2074049,2179696,2177264,2191925
+kyber1024 (21 executions),m4fspeed,1195804,1194357,1209296,1400558,1399094,1414045,1286778,1285313,1300265
+kyber1024 (21 executions),m4fstack,1199138,1196927,1212065,1409256,1407045,1422185,1296232,1294020,1309160
+kyber1024-90s (21 executions),clean,3133196,3132530,3133693,3398891,3398258,3399408,3622071,3621438,3622588
+kyber1024-90s (21 executions),m4fspeed,1040419,1032699,1042835,1139439,1131732,1141885,1130968,1123261,1133414
+kyber1024-90s (21 executions),m4fstack,1047044,1042619,1052226,1151389,1146986,1156358,1143699,1139296,1148669
+kyber512 (21 executions),clean,650912,650558,651511,862938,862595,863548,946379,946036,946989
+kyber512 (21 executions),m4fspeed,463422,462296,476738,565440,564335,578539,507234,506130,520333
+kyber512 (21 executions),m4fstack,462268,461795,462852,566491,566019,567075,508340,507868,508924
+kyber512-90s (21 executions),clean,982075,981588,982391,1147251,1146775,1147578,1287273,1286797,1287600
+kyber512-90s (21 executions),m4fspeed,394095,390223,394754,449318,445455,449936,447692,443829,448310
+kyber512-90s (21 executions),m4fstack,394749,394402,395074,452138,451792,452486,450573,450226,450920
+kyber768 (21 executions),clean,1079451,1079060,1079816,1384659,1384292,1385047,1485118,1484751,1485506
+kyber768 (21 executions),m4fspeed,752131,750248,765268,919029,917173,932157,832667,830811,845797
+kyber768 (21 executions),m4fstack,752518,751512,765846,923208,922202,936535,837313,836308,850640
+kyber768-90s (21 executions),clean,1884927,1884498,1885327,2106701,2106272,2107100,2288105,2287676,2288504
+kyber768-90s (21 executions),m4fspeed,656619,652615,657811,740131,736118,741327,734711,730698,735907
+kyber768-90s (21 executions),m4fstack,659103,645752,660567,746389,733035,747856,741442,728087,742908
+Signature Schemes,,,,,,,,,,
+Scheme,Implementation,Key Generation [cycles] (mean),Key Generation [cycles] (min),Key Generation [cycles] (max),Sign [cycles] (mean),Sign [cycles] (min),Sign [cycles] (max),Verify [cycles] (mean),Verify [cycles] (min),Verify [cycles] (max)
+dilithium2 (18 executions),clean,2115413,2073336,2140998,8337988,3492900,17077964,2271780,2271483,2272195
+dilithium2 (18 executions),m4f,1709572,1688304,1742791,3421752,2112259,6986416,1683998,1683458,1684341
+dilithium2aes (5 executions),clean,5429252,5397464,5468391,10830989,6769051,18102895,5096324,5064249,5135539
+dilithium3 (5 executions),clean,3662345,3661657,3662821,13924251,7430041,20742764,3762232,3762052,3762345
+dilithium3 (5 executions),m4f,3026450,3025954,3027180,6425848,3439912,9466811,2879572,2879505,2879684
+dilithium3aes (5 executions),clean,9759024,9716185,9805261,26331534,11457577,43929252,9060551,9017589,9106685
+dilithium5 (5 executions),clean,6135466,6121834,6149019,12374764,8587017,15683480,6327876,6327587,6328131
+dilithium5 (5 executions),m4f,5155956,5136883,5177662,7457219,5767849,10794816,5022350,5022240,5022487
+falcon-1024 (2 executions),clean,530920887,523774463,538067311,137427761,137386217,137469306,1636737,1636335,1637139
+falcon-1024 (2 executions),m4-ct,355656491,314612070,396700912,87473642,87401571,87545713,1023430,1023299,1023562
+falcon-1024 (2 executions),opt-ct,321762187,314615308,328909067,87523935,87509173,87538698,1024798,1024414,1025183
+falcon-1024 (2 executions),opt-leaktime,311441344,258667421,364215267,78450941,78266235,78635648,1016726,1008626,1024827
+falcon-512 (7 executions),clean,228564297,164919652,411598962,62748251,62605076,62864784,820612,820375,820920
+falcon-512 (7 executions),m4-ct,180461589,116624528,320936719,40092772,39947375,40232572,488029,484992,500834
+falcon-512 (7 executions),opt-ct,209220179,116624528,355851711,40087743,40038118,40119944,497850,485992,500398
+falcon-512 (7 executions),opt-leaktime,105013637,95092729,132290633,36614303,36436888,36885345,495760,485725,500507
+falcon-512-tree (10 executions),m4-ct,147562852,122768510,205077718,18223219,18109213,18331322,496174,485784,501669
+falcon-512-tree (10 executions),opt-ct,185440687,142951886,243555818,18239218,18097193,18357344,492183,485727,501891
+falcon-512-tree (10 executions),opt-leaktime,216719519,111764241,361463581,19916516,19722789,20148110,493140,484381,502501
+Memory Evaluation,,,,,,,,,,
+Key Encapsulation Schemes,,,,,,,,,,
+Scheme,Implementation,Key Generation [bytes],Encapsulation [bytes],Decapsulation [bytes],,,,,,
+bikel1,m4f,44068,32116,91368,,,,,,
+bikel1,opt,35928,25876,78556,,,,,,
+bikel3,m4f,85828,62852,161804,,,,,,
+bikel3,opt,69632,50564,155376,,,,,,
+hqc-rmrs-128,clean,48936,64412,71148,,,,,,
+hqc-rmrs-192,clean,96828,128348,141900,,,,,,
+hqc-rmrs-256,clean,154228,204820,226540,,,,,,
+kyber1024,clean,15076,18748,20324,,,,,,
+kyber1024,m4fspeed,6376,7472,7488,,,,,,
+kyber1024,m4fstack,3272,3344,3368,,,,,,
+kyber1024-90s,clean,15340,19020,20596,,,,,,
+kyber1024-90s,m4fspeed,7124,8220,8236,,,,,,
+kyber1024-90s,m4fstack,4028,4100,4124,,,,,,
+kyber512,clean,6108,8772,9548,,,,,,
+kyber512,m4fspeed,4304,5408,5416,,,,,,
+kyber512,m4fstack,2232,2320,2336,,,,,,
+kyber512-90s,clean,6548,9212,9988,,,,,,
+kyber512-90s,m4fspeed,5052,6156,6164,,,,,,
+kyber512-90s,m4fstack,2988,3076,3092,,,,,,
+kyber768,clean,10204,13372,14468,,,,,,
+kyber768,m4fspeed,5328,6440,6456,,,,,,
+kyber768,m4fstack,2768,2840,2856,,,,,,
+kyber768-90s,clean,10760,13820,14916,,,,,,
+kyber768-90s,m4fspeed,6084,7196,7212,,,,,,
+kyber768-90s,m4fstack,3516,3588,3604,,,,,,
+Signature Schemes,,,,,,,,,,
+Scheme,Implementation,Key Generation [bytes],Sign [bytes],Verify [bytes],,,,,,
+dilithium2,clean,38392,52016,36304,,,,,,
+dilithium2,m4f,38384,49464,36296,,,,,,
+dilithium2aes,clean,39748,53372,37660,,,,,,
+dilithium3,clean,60920,79664,57700,,,,,,
+dilithium3,m4f,60912,68912,57800,,,,,,
+dilithium3aes,clean,62276,81020,59164,,,,,,
+dilithium5,clean,97784,122672,92880,,,,,,
+dilithium5,m4f,97776,116016,92872,,,,,,
+falcon-1024,clean,36304,82420,8796,,,,,,
+falcon-1024,m4-ct,1472,2560,388,,,,,,
+falcon-1024,opt-ct,1488,2560,388,,,,,,
+falcon-1024,opt-leaktime,1480,2656,388,,,,,,
+falcon-1024-tree,opt-ct,1416,2920,388,,,,,,
+falcon-1024-tree,opt-leaktime,1400,2936,388,,,,,,
+falcon-512,clean,18360,42396,4700,,,,,,
+falcon-512,m4-ct,1488,2472,388,,,,,,
+falcon-512,opt-ct,1488,2472,388,,,,,,
+falcon-512,opt-leaktime,1440,2672,388,,,,,,
+falcon-512-tree,m4-ct,1480,2768,388,,,,,,
+falcon-512-tree,opt-ct,1480,2768,388,,,,,,
+falcon-512-tree,opt-leaktime,1488,2896,388,,,,,,
+sphincs-haraka-128f-robust,clean,3620,3712,4172,,,,,,
+sphincs-haraka-128s-simple,clean,3856,3896,3468,,,,,,
+sphincs-haraka-192f-robust,clean,5064,5104,5396,,,,,,
+sphincs-haraka-256f-robust,clean,7028,7104,7004,,,,,,
+sphincs-haraka-256f-simple,clean,7020,7016,6996,,,,,,
+sphincs-haraka-256s-simple,clean,7400,7240,6588,,,,,,
+sphincs-sha256-128f-simple,clean,2104,2168,2656,,,,,,
+sphincs-sha256-192s-robust,clean,4103,3992,3376,,,,,,
+sphincs-sha256-256f-robust,clean,5792,5760,5656,,,,,,
+sphincs-sha256-256f-simple,clean,5512,5480,5488,,,,,,
+sphincs-shake256-128f-robust,clean,2012,2176,2556,,,,,,
+sphincs-shake256-128s-robust,clean,2336,2288,1860,,,,,,
+sphincs-shake256-192f-simple,clean,3436,3576,3788,,,,,,
+sphincs-shake256-192s-robust,clean,3748,3736,3124,,,,,,
+sphincs-shake256-192s-simple,clean,3856,3736,3232,,,,,,
+sphincs-shake256-256s-robust,clean,5816,5648,5104,,,,,,
+sphincs-shake256-256s-simple,clean,5816,5648,4996,,,,,,
+Hashing Evaluation,,,,,,,,,,
+Key Encapsulation Schemes,,,,,,,,,,
+Scheme,Implementation,Key Generation [%],Encapsulation [%],Decapsulation [%],,,,,,
+kyber1024,clean,56.5,56.1,45.0,,,,,,
+kyber1024,m4fspeed,79.5,82.4,76.1,,,,,,
+kyber1024,m4fstack,79.3,82.0,75.6,,,,,,
+kyber1024-90s,clean,75.2,72.3,66.0,,,,,,
+kyber1024-90s,m4fspeed,70.9,73.2,67.8,,,,,,
+kyber1024-90s,m4fstack,70.5,72.6,67.2,,,,,,
+kyber512,clean,56.8,54.1,39.3,,,,,,
+kyber512,m4fspeed,79.7,82.5,73.2,,,,,,
+kyber512,m4fstack,79.8,82.2,73.0,,,,,,
+kyber512-90s,clean,70.4,64.7,54.8,,,,,,
+kyber512-90s,m4fspeed,72.4,74.6,66.5,,,,,,
+kyber512-90s,m4fstack,72.3,74.2,66.2,,,,,,
+kyber768,clean,55.0,54.6,41.8,,,,,,
+kyber768,m4fspeed,78.9,82.2,74.5,,,,,,
+kyber768,m4fstack,78.8,81.8,74.1,,,,,,
+kyber768-90s,clean,73.0,69.2,61.4,,,,,,
+kyber768-90s,m4fspeed,70.9,73.5,66.9,,,,,,
+kyber768-90s,m4fstack,70.6,72.9,66.3,,,,,,
+Signature Schemes,,,,,,,,,,
+Scheme,Implementation,Key Generation [%],Sign [%],Verify [%],,,,,,
+dilithium2,clean,67.0,37.4,59.7,,,,,,
+dilithium2,m4f,83.1,64.9,80.4,,,,,,
+dilithium2aes,clean,2.7,3.2,5.1,,,,,,
+dilithium3,clean,70.4,39.6,63.3,,,,,,
+dilithium3,m4f,85.1,63.9,82.6,,,,,,
+dilithium3aes,clean,2.2,2.3,3.6,,,,,,
+dilithium5,clean,72.4,42.4,67.3,,,,,,
+dilithium5,m4f,86.2,70.8,84.7,,,,,,
+falcon-1024,clean,9.6,0.4,27.0,,,,,,
+falcon-1024,m4-ct,12.9,0.5,35.4,,,,,,
+falcon-1024,opt-ct,20.8,0.5,35.5,,,,,,
+falcon-1024,opt-leaktime,5.6,0.5,35.5,,,,,,
+falcon-512,clean,17.5,0.4,29.4,,,,,,
+falcon-512,m4-ct,15.1,0.5,36.7,,,,,,
+falcon-512,opt-ct,15.4,0.5,36.5,,,,,,
+falcon-512,opt-leaktime,19.6,0.6,36.5,,,,,,
+falcon-512-tree,m4-ct,11.0,1.2,37.1,,,,,,
+falcon-512-tree,opt-ct,13.9,1.2,36.8,,,,,,
+falcon-512-tree,opt-leaktime,14.4,1.1,36.8,,,,,,
+Size Evaluation,,,,,,,,,,
+Key Encapsulation Schemes,,,,,,,,,,
+Scheme,Implementation,.text [bytes],.data [bytes],.bss [bytes],Total [bytes],,,,,
+kyber1024,clean,6076,0,0,6076,,,,,
+kyber1024,m4fspeed,16452,0,0,16452,,,,,
+kyber1024,m4fstack,13708,0,0,13708,,,,,
+kyber1024-90s,clean,6460,0,0,6460,,,,,
+kyber1024-90s,m4fspeed,16936,0,0,16936,,,,,
+kyber1024-90s,m4fstack,13984,0,0,13984,,,,,
+kyber512,clean,4888,0,0,4888,,,,,
+kyber512,m4fspeed,15336,0,0,15336,,,,,
+kyber512,m4fstack,12824,0,0,12824,,,,,
+kyber512-90s,clean,5136,0,0,5136,,,,,
+kyber512-90s,m4fspeed,15820,0,0,15820,,,,,
+kyber512-90s,m4fstack,13088,0,0,13088,,,,,
+kyber768,clean,4904,0,0,4904,,,,,
+kyber768,m4fspeed,15528,0,0,15528,,,,,
+kyber768,m4fstack,12824,0,0,12824,,,,,
+kyber768-90s,clean,5168,0,0,5168,,,,,
+kyber768-90s,m4fspeed,16020,0,0,16020,,,,,
+kyber768-90s,m4fstack,13088,0,0,13088,,,,,
+Signature Schemes,,,,,,,,,,
+Scheme,Implementation,.text [bytes],.data [bytes],.bss [bytes],Total [bytes],,,,,
+dilithium2,clean,7852,0,0,7852,,,,,
+dilithium2,m4f,18428,0,0,18428,,,,,
+dilithium2aes,clean,14674,0,0,14674,,,,,
+dilithium3,clean,7372,0,0,7372,,,,,
+dilithium3,m4f,19904,0,0,19904,,,,,
+dilithium3aes,clean,14186,0,0,14186,,,,,
+dilithium5,clean,7652,0,0,7652,,,,,
+dilithium5,m4f,18220,0,0,18220,,,,,
+falcon-1024,clean,80785,0,0,80785,,,,,
+falcon-1024,m4-ct,81073,0,79872,160945,,,,,
+falcon-1024,opt-ct,81073,0,79872,160945,,,,,
+falcon-1024,opt-leaktime,74293,0,79872,154165,,,,,
+falcon-512,clean,80753,0,0,80753,,,,,
+falcon-512,m4-ct,81073,0,39936,121009,,,,,
+falcon-512,opt-ct,81073,0,39936,121009,,,,,
+falcon-512,opt-leaktime,74293,0,39936,114229,,,,,
+falcon-512-tree,m4-ct,80813,0,27648,108461,,,,,
+falcon-512-tree,opt-ct,80813,0,27648,108461,,,,,
+falcon-512-tree,opt-leaktime,74033,0,27648,101681,,,,,
