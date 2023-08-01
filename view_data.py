@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import csv
 import sys
+import os
+import shutil
 
 class BarChart():
     def __init__(self, csvPath):
@@ -20,42 +22,64 @@ class BarChart():
 
     def ParseFile(self):
         previous = ""
-        data = []
+        keyGenData = []
+        encapData = []
+        decapData = []
         impl = []
         coords = []
         count = 0
+        kem = True
 
-        figure, axis = plt.subplots(self.plots)
+        if os.path.exists("./plots"):
+            shutil.rmtree("./plots")
+        os.mkdir("./plots")
+
         with open(self.csvPath, 'r') as csvFile:
             csvReader = csv.reader(csvFile, delimiter=',')
             plotCount = 0
             for row in csvReader:
+                if row[0] == "Memory Evaluation":
+                    return
+                if row[0] == "Signature Schemes":
+                    kem = False
                 if row[1] != "" and row[0] != "Scheme":
                     if row[0] != previous and previous != "":
-                        print(plotCount)
-                        axis[plotCount].bar(coords, data, tick_label=impl, width=0.8, color=["red", "blue"])
-                        #axis[0, plotCount].xlabel("Implementations")
-                        #axis[0, plotCount].ylabel("Cycles")
-                        axis[plotCount].set_title(previous)
-                        print(plotCount)
-                        impl = []
-                        data = []
+                        figure, axis = plt.subplots(3)
+                        figure.suptitle(previous)
+                        figure.tight_layout()
+
+                        axis[0].bar(coords, keyGenData, tick_label=impl, width=0.8, color=["green", "blue"])
+                        axis[0].set_title("Key Generation")
+                        axis[0].set_ylabel("Cycles")
+
+                        axis[1].bar(coords, encapData, tick_label=impl, width=0.8, color=["green", "blue"])
+                        if not kem:
+                            axis[1].set_title("Sign")
+                        else:
+                            axis[1].set_title("Encapsulation")
+                        axis[1].set_ylabel("Cycles")
+
+                        axis[2].bar(coords, decapData, tick_label=impl, width=0.8, color=["green", "blue"])
+                        if not kem:
+                            axis[2].set_title("Verify")
+                        else:
+                            axis[2].set_title("Decapsulation")
+                        axis[2].set_ylabel("Cycles")
+
+                        plt.savefig("./plots/" + previous + ".png")
+                        keyGenData = []
+                        encapData = []
+                        decapData = []
                         coords = []
+                        impl = []
                         count = 0
-                        previous = row[0]
-                        impl.append(row[1])
-                        data.append(float(row[2]))
-                        coords.append(count)
-                        count += 1
-                        plotCount += 1
-                    else:
-                        print("Not Plotting")
-                        previous = row[0]
-                        impl.append(row[1])
-                        data.append(float(row[2]))
-                        coords.append(count)
-                        count += 1
-        plt.show()
+                    previous = row[0]
+                    impl.append(row[1])
+                    keyGenData.append(float(row[2]))
+                    encapData.append(float(row[5]))
+                    decapData.append(float(row[8]))
+                    coords.append(count)
+                    count += 1
 
     def PlotScheme(self, scheme, signature=""):
         impl = []
@@ -105,11 +129,20 @@ class BarChart():
                     
 
 chart = BarChart("results.csv")
-value = ""
+
+arg1 = ""
+arg2 = ""
 try:
-    value = sys.argv[2]
-    print(value)
+    arg1 = sys.argv[1]
 except:
-    value = ""
-print(value)
-chart.PlotScheme(sys.argv[1], value)
+    arg1 = "kyber512"
+
+try:
+    arg2 = sys.argv[2]
+except:
+    arg2 = ""
+
+if arg1 == "save":
+    chart.ParseFile()
+else:
+    chart.PlotScheme(arg1, arg2)
