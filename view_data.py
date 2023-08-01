@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import matplotlib.pyplot as plt
 import csv
 import sys
@@ -20,6 +22,30 @@ class BarChart():
 
             print(self.plots)
 
+    def Plot(self, title, coords, data1, data2, data3, tick_labels, kem):
+        figure, axis = plt.subplots(3)
+        figure.suptitle(title)
+        figure.tight_layout()
+
+        axis[0].bar(coords, data1, tick_label=tick_labels, width=0.8, color=["green", "blue"])
+        axis[0].set_title("Key Generation")
+        axis[0].set_ylabel("Cycle")
+
+        axis[1].bar(coords, data2, tick_label=tick_labels, width=0.8, color=["green", "blue"])
+        if not kem:
+            axis[1].set_title("Sign")
+        else:
+            axis[1].set_title("Encapsulation")
+        axis[1].set_ylabel("Cycle")
+
+
+        axis[2].bar(coords, data3, tick_label=tick_labels, width=0.8, color=["green", "blue"])
+        if not kem:
+            axis[2].set_title("Verify")
+        else:
+            axis[2].set_title("Decapsulation")
+        axis[2].set_ylabel("Cycles")
+
     def ParseFile(self):
         previous = ""
         keyGenData = []
@@ -39,32 +65,12 @@ class BarChart():
             plotCount = 0
             for row in csvReader:
                 if row[0] == "Memory Evaluation":
+                    self.Plot(previous, coords, keyGenData, encapData, decapData, impl, kem)
+                    plt.savefig("./plots/" + previous + ".png")
                     return
-                if row[0] == "Signature Schemes":
-                    kem = False
                 if row[1] != "" and row[0] != "Scheme":
                     if row[0] != previous and previous != "":
-                        figure, axis = plt.subplots(3)
-                        figure.suptitle(previous)
-                        figure.tight_layout()
-
-                        axis[0].bar(coords, keyGenData, tick_label=impl, width=0.8, color=["green", "blue"])
-                        axis[0].set_title("Key Generation")
-                        axis[0].set_ylabel("Cycles")
-
-                        axis[1].bar(coords, encapData, tick_label=impl, width=0.8, color=["green", "blue"])
-                        if not kem:
-                            axis[1].set_title("Sign")
-                        else:
-                            axis[1].set_title("Encapsulation")
-                        axis[1].set_ylabel("Cycles")
-
-                        axis[2].bar(coords, decapData, tick_label=impl, width=0.8, color=["green", "blue"])
-                        if not kem:
-                            axis[2].set_title("Verify")
-                        else:
-                            axis[2].set_title("Decapsulation")
-                        axis[2].set_ylabel("Cycles")
+                        self.Plot(previous, coords, keyGenData, encapData, decapData, impl, kem)
 
                         plt.savefig("./plots/" + previous + ".png")
                         keyGenData = []
@@ -80,6 +86,9 @@ class BarChart():
                     decapData.append(float(row[8]))
                     coords.append(count)
                     count += 1
+                elif row[0] == "Signature Schemes":
+                    kem = False
+                
 
     def PlotScheme(self, scheme, signature=""):
         impl = []
@@ -88,6 +97,10 @@ class BarChart():
         encapData = []
         decapData = []
         count = 0
+        kem = True
+
+        if signature == "-s":
+            kem = False
 
         with open(self.csvPath, 'r') as csvFile:
             csvReader = csv.reader(csvFile, delimiter=',')
@@ -101,28 +114,7 @@ class BarChart():
                     count += 1
                 if row[0].split(" ")[0] != scheme and len(keyGenData) > 0:
                     # plot the graph
-                    figure, axis = plt.subplots(3)
-                    figure.suptitle(scheme)
-                    figure.tight_layout()
-
-                    axis[0].bar(coords, keyGenData, tick_label=impl, width=0.8, color=["green", "blue"])
-                    axis[0].set_title("Key Generation")
-                    axis[0].set_ylabel("Cycles")
-
-                    axis[1].bar(coords, encapData, tick_label=impl, width=0.8, color=["green", "blue"])
-                    if signature == "-s":
-                        axis[1].set_title("Sign")
-                    else:
-                        axis[1].set_title("Encapsulation")
-                    axis[1].set_ylabel("Cycles")
-
-                    axis[2].bar(coords, decapData, tick_label=impl, width=0.8, color=["green", "blue"])
-                    if signature == "-s":
-                        axis[2].set_title("Verify")
-                    else:
-                        axis[2].set_title("Decapsulation")
-                    axis[2].set_ylabel("Cycles")
-
+                    self.Plot(scheme, coords, keyGenData, encapData, decapData, impl, kem)
                     plt.show()
                     return
             print("Cannot find scheme: " + scheme)
