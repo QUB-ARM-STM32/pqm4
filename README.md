@@ -15,6 +15,8 @@ This repository has been forked from [pqm4](https://github.com/mupq/pqm4), howev
   - [Flashing](#flashing)
     - [Using Windows](#using-windows)
     - [Running Tests](#running-tests)
+    - [Running Benchmarks](#running-benchmarks)
+      - [Results](#results)
 
 
 
@@ -36,7 +38,7 @@ Installing WSL is very simple now and can done from the microsoft store.
 
 To learn how to install WSL please refer to this [guide](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview). This demonstrates how to install ubuntu on WSL, however you can install any linux distribution you want, but be aware that this tutorial uses ubuntu. You are only required to follow the first 4 steps of the guide as we will not be using the GUI.
 
-If you are unfamilar with linux [here](https://www.hostinger.co.uk/tutorials/linux-commands) is a quick guide to understand some basic commands.
+If you are unfamiliar with linux [here](https://www.hostinger.co.uk/tutorials/linux-commands) is a quick guide to understand some basic commands.
 
 ### Install the required linux packages
 
@@ -58,8 +60,10 @@ To compile this project using WSL you can either use the linux file system or th
 To clone this project from [GitHub](https://github.com/) in WSL simply run:
 
 ```bash
-git clone --recursive https://github.com/QUB-ARM-STM32/pqm4.git
+git clone --recursive https://github.com/mupq/pqm4.git
 ```
+
+**N.B This guide has been created using commit a525417134995302bb5013dd112dec65cdb28ca9**
 
 We can then access this cloned repository by:
 
@@ -105,7 +109,7 @@ The easiest method to flash a single binary is to use [STM32CubeProgrammer](http
 
     ![Output](./Images/Output.png)
 
-    The output may like strange that is becuase it is designed to be used with the testing framework included.
+    The output may like strange that is because it is designed to be used with the testing framework included.
 
 ### Running Tests
 
@@ -160,4 +164,31 @@ To be able to run the tests we will need to pass our usb devices from windows. T
 
     ![Test Output](./Images/Test-Cases.png)
 
-    For more advanced testing options refer to the [pqm4 options](./pqm4.md#running-tests-and-benchmarks).
+### Running Benchmarks
+
+To run the benchmarks we can simply use the provided scripts. With the board passed through to WSL we can run:
+
+```bash
+sudo python3 benchmarks.py -p nucleo-l4r5zi -u /dev/ttyACM0 kyber512
+```
+
+- `-p` specifies the platform from the list of supported platforms found [here](https://github.com/mupq/pqm4#setupinstallation)
+- `-u` specifies the serial port to use
+- Anything after specifies the algorithm to benchmark, you can run multiple at once by separating them with a space, such as `kyber512 kyber1024`
+- To run all the schemes just do not include any algorithm names
+
+Running this for multiple schemes may take some time.
+
+#### Results
+
+The results will be stored to the `benchmarks/` directory. To view the results in a more readable format we can use the provided script:
+
+To produce a CSV file run:
+```bash
+python3 convert_benchmarks.py csv > results.csv
+```
+
+To produce a markdown document run:
+```bash
+python3 convert_benchmarks.py md > results.md
+```
