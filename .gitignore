@@ -13,3 +13,4 @@ compile_commands.json
 obj/
 plots/
 kyber-tests
+build/
