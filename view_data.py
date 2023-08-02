@@ -29,14 +29,14 @@ class BarChart():
 
         axis[0].bar(coords, data1, tick_label=tick_labels, width=0.8, color=["green", "blue"])
         axis[0].set_title("Key Generation")
-        axis[0].set_ylabel("Cycle")
+        axis[0].set_ylabel("Cycles")
 
         axis[1].bar(coords, data2, tick_label=tick_labels, width=0.8, color=["green", "blue"])
         if not kem:
             axis[1].set_title("Sign")
         else:
             axis[1].set_title("Encapsulation")
-        axis[1].set_ylabel("Cycle")
+        axis[1].set_ylabel("Cycles")
 
 
         axis[2].bar(coords, data3, tick_label=tick_labels, width=0.8, color=["green", "blue"])
