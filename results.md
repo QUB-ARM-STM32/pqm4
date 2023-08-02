@@ -8,9 +8,9 @@
 | kyber1024-90s (21 executions) | clean | AVG: 3,133,196 <br /> MIN: 3,132,530 <br /> MAX: 3,133,693 | AVG: 3,398,891 <br /> MIN: 3,398,258 <br /> MAX: 3,399,408 | AVG: 3,622,071 <br /> MIN: 3,621,438 <br /> MAX: 3,622,588 |
 | kyber1024-90s (21 executions) | m4fspeed | AVG: 1,040,419 <br /> MIN: 1,032,699 <br /> MAX: 1,042,835 | AVG: 1,139,439 <br /> MIN: 1,131,732 <br /> MAX: 1,141,885 | AVG: 1,130,968 <br /> MIN: 1,123,261 <br /> MAX: 1,133,414 |
 | kyber1024-90s (21 executions) | m4fstack | AVG: 1,047,044 <br /> MIN: 1,042,619 <br /> MAX: 1,052,226 | AVG: 1,151,389 <br /> MIN: 1,146,986 <br /> MAX: 1,156,358 | AVG: 1,143,699 <br /> MIN: 1,139,296 <br /> MAX: 1,148,669 |
-| kyber512 (21 executions) | clean | AVG: 650,912 <br /> MIN: 650,558 <br /> MAX: 651,511 | AVG: 862,938 <br /> MIN: 862,595 <br /> MAX: 863,548 | AVG: 946,379 <br /> MIN: 946,036 <br /> MAX: 946,989 |
-| kyber512 (21 executions) | m4fspeed | AVG: 463,422 <br /> MIN: 462,296 <br /> MAX: 476,738 | AVG: 565,440 <br /> MIN: 564,335 <br /> MAX: 578,539 | AVG: 507,234 <br /> MIN: 506,130 <br /> MAX: 520,333 |
-| kyber512 (21 executions) | m4fstack | AVG: 462,268 <br /> MIN: 461,795 <br /> MAX: 462,852 | AVG: 566,491 <br /> MIN: 566,019 <br /> MAX: 567,075 | AVG: 508,340 <br /> MIN: 507,868 <br /> MAX: 508,924 |
+| kyber512 (22 executions) | clean | AVG: 650,919 <br /> MIN: 650,558 <br /> MAX: 651,511 | AVG: 862,945 <br /> MIN: 862,595 <br /> MAX: 863,548 | AVG: 946,386 <br /> MIN: 946,036 <br /> MAX: 946,989 |
+| kyber512 (22 executions) | m4fspeed | AVG: 463,400 <br /> MIN: 462,296 <br /> MAX: 476,738 | AVG: 565,418 <br /> MIN: 564,335 <br /> MAX: 578,539 | AVG: 507,213 <br /> MIN: 506,130 <br /> MAX: 520,333 |
+| kyber512 (22 executions) | m4fstack | AVG: 462,254 <br /> MIN: 461,795 <br /> MAX: 462,852 | AVG: 566,478 <br /> MIN: 566,019 <br /> MAX: 567,075 | AVG: 508,327 <br /> MIN: 507,868 <br /> MAX: 508,924 |
 | kyber512-90s (21 executions) | clean | AVG: 982,075 <br /> MIN: 981,588 <br /> MAX: 982,391 | AVG: 1,147,251 <br /> MIN: 1,146,775 <br /> MAX: 1,147,578 | AVG: 1,287,273 <br /> MIN: 1,286,797 <br /> MAX: 1,287,600 |
 | kyber512-90s (21 executions) | m4fspeed | AVG: 394,095 <br /> MIN: 390,223 <br /> MAX: 394,754 | AVG: 449,318 <br /> MIN: 445,455 <br /> MAX: 449,936 | AVG: 447,692 <br /> MIN: 443,829 <br /> MAX: 448,310 |
 | kyber512-90s (21 executions) | m4fstack | AVG: 394,749 <br /> MIN: 394,402 <br /> MAX: 395,074 | AVG: 452,138 <br /> MIN: 451,792 <br /> MAX: 452,486 | AVG: 450,573 <br /> MIN: 450,226 <br /> MAX: 450,920 |
