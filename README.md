@@ -17,6 +17,7 @@ This repository has been forked from [pqm4](https://github.com/mupq/pqm4), howev
     - [Running Tests](#running-tests)
     - [Running Benchmarks](#running-benchmarks)
       - [Results](#results)
+  - [Using pqm4 schemes in an STM32Cube project](#using-pqm4-schemes-in-an-stm32cube-project)
 
 
 
@@ -192,3 +193,6 @@ To produce a markdown document run:
 ```bash
 python3 convert_benchmarks.py md > results.md
 ```
+## Using pqm4 schemes in an STM32Cube project
+
+If you are interested in using the pqm4 schemes in an STM32Cube project outside of this testing and benchmarking framework, then follow the steps outlined [here](./STM32CUBEIDE.md).
