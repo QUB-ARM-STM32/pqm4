@@ -169,6 +169,8 @@ If you wish to flash a single binary using WSL you must install some additional 
     screen /dev/ttyACM0 38400
     ```
 
+    Screen may not be installed by default, if this is the case simply run `sudo apt install screen`.
+
     This will open a serial monitor on device `ttyACM0` and with a baud rate of `38400`. You will likely need to press the reset button on your board. If you see the following output then you have successfully flashed the binary.
 
     ![screen](./Images/Aes-Test.png)
